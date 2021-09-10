@@ -32,7 +32,7 @@ Scenario Outline: Sign up a new user
     | Sula      | Ledwidge | sledwidgeb@timesonline.co.uk | dcXjoMugZ |
 
 
-  @signup_ui
+  @signup_ui @temp
   Scenario: Sign up a new user with invalid email input
     When I fill up the email field with invalid email format
     Then I should not be able to sign up and I should get an error message

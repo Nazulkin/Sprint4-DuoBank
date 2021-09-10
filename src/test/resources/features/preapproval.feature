@@ -3,7 +3,7 @@ Feature: PreApproval Page related features
   Background:
     Given I am on the Preapproval Details Page
 
-  @preapproval_test
+  @preapproval_ui
   Scenario: Click "next" button without competing all required fields
   When I click next without entering the required information
   Then I should not proceed to the next page and error messages should be displayed in every required field
