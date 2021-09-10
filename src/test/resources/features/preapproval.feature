@@ -21,12 +21,12 @@ Feature: PreApproval Page related features
     Then The retrieved columns should be similar to the expected columns
 
 
-    @preapproval_db @db_only
+    @preapproval_db @db_only @failed
    Scenario: Verifying that "realtor status" filed range is within int
       When I send query to update the field with the number outside of the int range
       Then The database should throw an exception
 
-     @preapproval_db @db_only
+     @preapproval_db @db_only @failed
       Scenario: Verify that the "realtor status" filed type accepts only int values
         When I send query to update the filed with the non int value
         Then The database should throw an exception

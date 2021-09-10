@@ -17,12 +17,6 @@
 
 
     <dependencies>
-        <!--I added this dependence. There is no such dependency in Akmal's -->
-<!--        <dependency>  -->
-<!--            <groupId>org.apache.maven.surefire</groupId>-->
-<!--            <artifactId>surefire-api</artifactId>-->
-<!--            <version>3.0.0-M5</version>-->
-<!--        </dependency>-->
 
         <dependency>
             <groupId>org.seleniumhq.selenium</groupId>
@@ -36,12 +30,12 @@
             <version>5.0.8</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.testng</groupId>
-            <artifactId>testng</artifactId>
-            <version>7.4.0</version>
-            <scope>test</scope>
-        </dependency>
+<!--        <dependency>-->
+<!--            <groupId>org.testng</groupId>-->
+<!--            <artifactId>testng</artifactId>-->
+<!--            <version>7.4.0</version>-->
+<!--            <scope>test</scope>-->
+<!--        </dependency>-->
 
         <dependency>
             <groupId>io.github.bonigarcia</groupId>
@@ -114,13 +108,13 @@
                 <version>3.0.0-M5</version>
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
-                    <parallel>methods</parallel>
-                    <useUnlimitedThreads>true</useUnlimitedThreads>
+<!--                    <parallel>methods</parallel>-->
+<!--                    <useUnlimitedThreads>true</useUnlimitedThreads>-->
                     <includes>
                         <!--                    name of your runner class-->
-<!--                        <include>**/**ParallelRunner.java</include>  &lt;!&ndash; using wildcard to run all classes that include word Runner.java &ndash;&gt;-->
+<!--                        <include>**/**ParallelRunner.java</include>  -->
                         <include>**/*CucumberRunner.java</include>
-<!--                        <include>**/*CucumberReRunner.java</include> &lt;!&ndash; I put it just for testing GA&ndash;&gt;-->
+                        <include>**/*FailedScenariosRunner.java</include>
                     </includes>
                 </configuration>
             </plugin>
