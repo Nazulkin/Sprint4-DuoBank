@@ -11,7 +11,7 @@
     <properties>
         <maven.compiler.source>8</maven.compiler.source>
         <maven.compiler.target>8</maven.compiler.target>
-        <rerunFailingTestsCount>2</rerunFailingTestsCount>  <!--I added this to retest failing tests. But this might be a source of problem as it was not tested.GA. -->
+<!--        <rerunFailingTestsCount>2</rerunFailingTestsCount>  &lt;!&ndash;I added this to retest failing tests. But this might be a source of problem as it was not tested.GA. &ndash;&gt;-->
     </properties>
 
 
@@ -107,6 +107,8 @@
         </dependency>
 
 
+
+
     </dependencies>
 
     <build>
@@ -115,14 +117,15 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.0.0-M5</version>
                 <configuration>
                     <testFailureIgnore>true</testFailureIgnore>
-
-
+                    <parallel>methods</parallel>
+                    <useUnlimitedThreads>true</useUnlimitedThreads>
                     <includes>
                         <!--                    name of your runner class-->
-                        <include>**/*Runner.java</include>  <!-- using wildcard to tun all classes that include word Runner.java -->
-<!--                        <include>**/*CucumberRunner.java</include>-->
+<!--                        <include>**/**ParallelRunner.java</include>  &lt;!&ndash; using wildcard to run all classes that include word Runner.java &ndash;&gt;-->
+                        <include>**/*CucumberRunner.java</include>
 <!--                        <include>**/*CucumberReRunner.java</include> &lt;!&ndash; I put it just for testing GA&ndash;&gt;-->
                     </includes>
                 </configuration>
