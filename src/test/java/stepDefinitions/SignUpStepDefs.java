@@ -1,10 +1,13 @@
 package stepDefinitions;
 
+import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import org.apache.commons.codec.digest.DigestUtils;
 import org.junit.Assert;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebElement;
 import pages.LoginPage;
 import pages.SignUpPage;
 import utilities.ConfigReader;
@@ -12,6 +15,7 @@ import utilities.DBUtility;
 import utilities.Driver;
 
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
@@ -66,10 +70,57 @@ public class SignUpStepDefs {
         Assert.assertEquals(expectedPassword, (String)(map.get("password")));
 
 
-        DBUtility.updateQuery("delete from tbl_user where email='"+email+"'");  //to delete the created user to be able to run the script again
+        DBUtility.updateQuery("delete from tbl_user where email='"+email+"'");
 
+    }
 
+    @When("I fill up the email field with invalid email format")
+    public void iFillUpTheEmailFieldWithInvalidEmailFormat() {
+        SignUpPage signUpPage = new SignUpPage();
+        Faker fake = new Faker();
+
+        signUpPage.firstName.sendKeys(fake.name().firstName());
+        signUpPage.lastName.sendKeys(fake.name().lastName());
+        signUpPage.email.sendKeys(fake.name().firstName());
+        signUpPage.registerButton.click();
 
 
     }
+    @Then("I should not be able to sign up and I should get an error message")
+    public void iShouldNotBeAbleToSignUpAndIShouldGetAnErrorMessage() {
+        SignUpPage signUpPage = new SignUpPage();
+        WebElement inputEmail = signUpPage.email;
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        boolean requiredEmailAddressErrorMessage = (Boolean) js.executeScript("return arguments[0].required;", inputEmail);
+        Assert.assertTrue(requiredEmailAddressErrorMessage);
+}
+
+    @When("I try to sign up without entering any data")
+    public void iTryToSignUpWithoutEnteringAnyData() {
+        SignUpPage signUpPage = new SignUpPage();
+        signUpPage.registerButton.click();
+    }
+
+    @Then("I should not be able to sign up and an error message should be displayed")
+    public void iShouldNotBeAbleToSignUpAndAnErrorMessageShouldBeDisplayed() {
+        SignUpPage signUpPage = new SignUpPage();
+        List<WebElement> signUpTable = new ArrayList<>();
+        signUpTable.add(signUpPage.firstName);
+        signUpTable.add(signUpPage.lastName);
+        signUpTable.add(signUpPage.email);
+        signUpTable.add(signUpPage.password);
+
+        JavascriptExecutor js = (JavascriptExecutor) Driver.getDriver();
+        boolean isRequired;
+
+        for (int i = 0; i < signUpTable.size(); i++) {
+
+            WebElement inputElement = signUpTable.get(i);
+            isRequired = (Boolean) js.executeScript("return arguments[0].required;", inputElement);
+            Assert.assertTrue(isRequired);
+        }
+    }
+
+
 }

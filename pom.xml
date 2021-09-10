@@ -103,7 +103,7 @@
 
                     <includes>
                         <!--                    name of your runner class-->
-                        <include>**/*Runner.java</include>  <!-- using wildcard to tun all classes that include word Runner.java -->
+                        <include>**/*Runner.java</include>  <!-- using wildcard to run all classes that include word Runner.java -->
 <!--                        <include>**/*CucumberRunner.java</include>-->
 <!--                        <include>**/*CucumberReRunner.java</include> &lt;!&ndash; I put it just for testing GA&ndash;&gt;-->
                     </includes>
