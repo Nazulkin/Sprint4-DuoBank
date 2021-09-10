@@ -7,10 +7,10 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = "@db_only", //@smoke is just as a placeholder
+        tags = "@temp", //@smoke is just as a placeholder
         features = "src/test/resources/features",
         glue = "stepDefinitions"
-        //,dryRun = true
+//        ,dryRun = true
 
         , plugin = {
 

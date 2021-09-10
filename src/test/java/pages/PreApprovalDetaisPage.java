@@ -41,7 +41,7 @@ public class PreApprovalDetaisPage extends PageBase {
     @FindBy(id = "select2-src_down_payment-8f-container")
     public WebElement additionalFunds;
 
-    @FindBy(xpath = "//*[@id='steps-uid-0']/div[3]/ul/li[2]/a")
+    @FindBy(xpath = "//*[@id='steps-uid-0']/div[3]/ul/li[2]/a") //
     public WebElement next;
 
     @FindBy(xpath = "//*[@id='realtorinfo-error']")
