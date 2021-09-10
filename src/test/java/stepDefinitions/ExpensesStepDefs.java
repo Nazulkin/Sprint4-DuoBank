@@ -1,6 +1,5 @@
 package stepDefinitions;
 
-
 import com.github.javafaker.Faker;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
@@ -10,41 +9,14 @@ import pages.ExpensesPage;
 import pages.LoginPage;
 import pages.PersonalInformationPage;
 import pages.PreApprovalDetaisPage;
-import utilities.DBUtility;
 
-import java.util.List;
 
 
 public class ExpensesStepDefs {
 
-    String expectedName;
-    Object actualName;
     ExpensesPage expensesPage = new ExpensesPage ( );
     PersonalInformationPage personalInformationPage = new PersonalInformationPage ( );
     Faker faker = new Faker ( );
-
-
-    @When("I send a query to get the monthly rental payment in resent created application")
-    public void i_send_a_query_to_get_the_monthly_rental_payment_in_resent_created_application ( ) {
-        System.out.println ( "Sending query" );
-        List<List<Object>> queryResultAsListOfList = DBUtility.getQueryResultAsListOfLists
-                ( "select * from loan.tbl_mortagage" );
-        expectedName = "Wonder Woman";
-        actualName = queryResultAsListOfList.get ( 148 ).get ( 35 );
-    }
-
-
-    @Then("The received resent monthly rental payment should match with the expected result")
-    public void the_received_resent_monthly_rental_payment_should_match_with_the_expected_result ( ) {
-        System.out.println ( "Verify the result " );
-        if ( expectedName.equals ( actualName ) ) {
-            System.out.println ( "System is working perfect" );
-        } else {
-            System.out.println ( "System needs to be fixed!" );
-        }
-        System.out.println ( "expected name: " + expectedName );
-        System.out.println ( "actual name:   " + actualName );
-    }
 
 
     @Given("I am logged using {string} for username and {string} for password")
