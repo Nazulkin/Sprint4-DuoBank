@@ -1,5 +1,6 @@
 package pages;
 
+import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
@@ -17,4 +18,5 @@ public class EconsentPage extends PageBase {
     public WebElement dontAgreeButton;
     @FindBy(xpath = "//a[@href='#next']")
     public WebElement nextButton;
+
 }

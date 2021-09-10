@@ -5,7 +5,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class ExpensesPage extends PageBase {
 
-    @FindBy(xpath = "//*[@for='expense1']")
+    @FindBy(xpath = "//*[@id='expense1']")
     public WebElement rentChekBox;
 
     @FindBy(xpath = "//*[@for='expense2']")
