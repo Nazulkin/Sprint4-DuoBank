@@ -24,7 +24,7 @@ public class PersonalInformationTests extends TestBase {
         do {
             loginPage.login(ConfigReader.getProperty("username1"), ConfigReader.getProperty("password1"));
         }
-        while (driver.getCurrentUrl().equals("http://duobank-env.eba-hjmrxg9a.us-east-2.elasticbeanstalk.com/index.php"));
+        while (driver.getCurrentUrl().equals("http://duobank-env.eba-hjmrxg9a.us-east-2.elasticbeanstalk.com/dashboard.php"));
 
         loginPage.mortgageApplicationMenu.click();
         uitests.PreApprovalDetailsTests preApproval = new uitests.PreApprovalDetailsTests();
