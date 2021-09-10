@@ -24,6 +24,8 @@ public class ExpensesStepDefs {
     Faker faker = new Faker ( );
 
 
+
+
     @When("I send a query to get the monthly rental payment in resent created application")
     public void i_send_a_query_to_get_the_monthly_rental_payment_in_resent_created_application ( ) {
         System.out.println ( "Sending query" );
