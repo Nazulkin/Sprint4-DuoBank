@@ -3,7 +3,7 @@ Feature: Sign Up related features
   Background:
     Given I am in homepage and click on sign up
 
-  @signup_db
+  @signup_db @db_only
   Scenario: Sign up a new user
     When I fill up the fields with the following new user information
 
@@ -15,7 +15,7 @@ Feature: Sign Up related features
 
 
 
-  @signup_db
+  @signup_db @db_only
 Scenario Outline: Sign up a new user
   When I fill up the fields with the following new user information
 
@@ -32,13 +32,13 @@ Scenario Outline: Sign up a new user
     | Sula      | Ledwidge | sledwidgeb@timesonline.co.uk | dcXjoMugZ |
 
 
-  @signup_ui @temp
+  @signup_ui @ui_only
   Scenario: Sign up a new user with invalid email input
     When I fill up the email field with invalid email format
     Then I should not be able to sign up and I should get an error message
 
 
-  @signup_ui
+  @signup_ui @ui_only
   Scenario: Sign up a new user without entering requested data
     When I try to sign up without entering any data
     Then I should not be able to sign up and an error message should be displayed
