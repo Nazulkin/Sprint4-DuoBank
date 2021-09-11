@@ -1,7 +1,7 @@
 @database
 Feature: Database tests related scenarios
 
-  @db_only
+  @db_only @regression
   Scenario: Verify the user and relater information from database
     When I sent a query to database for user`s and realtor`s information
     """
@@ -9,7 +9,7 @@ Feature: Database tests related scenarios
     """
     Then The user`s and realtor`s information should match
 
-  @db_only
+  @db_only @regression
   Scenario: Updated the user and relater information in the database
     When I sent update query to the database for user`s and realtor`s updated information
     """
@@ -19,7 +19,7 @@ Feature: Database tests related scenarios
     """
     Then The user`s and realtor`s information should be updated
 
-  @db_only
+  @db_only @regression
   Scenario: Verify duplicated SSN Numbers in the database
     When I retrieve SSN column from the database
     """
@@ -27,7 +27,7 @@ Feature: Database tests related scenarios
     """
     Then There should not be duplicates
 
-  @db_only
+  @db_only @regression
   Scenario: Verify the first 5 users in users table
     When I send a query to get the first 5 users from users table
     Then The result should be the following
@@ -37,7 +37,7 @@ Feature: Database tests related scenarios
       | 3326 | tester@gmail.com     | 7f2ababa423061c509f4923dd04b6cf1 | Tester | Tester  |
       | 3327 | mickey@gmail.com     | fad85e1613f298102d543545c0cc1187 | Buddy  | Schultz |
 
-  @db_only
+  @db_only @regression
   Scenario: Verify selected row information in mortgage table
     When I send a query to get the selected applicant from mortgage table
     Then The result should as below

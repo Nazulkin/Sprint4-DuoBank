@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = " @db_only",
+        tags = " @econsent",
         features = "src/test/resources/features",
         glue = "stepDefinitions"
         //,dryRun = true
@@ -22,8 +22,6 @@ import org.junit.runner.RunWith;
                    },
         stepNotifications = true,
         snippets = CucumberOptions.SnippetType.CAMELCASE
-
-
 
 )
 
