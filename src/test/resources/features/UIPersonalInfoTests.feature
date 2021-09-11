@@ -1,17 +1,24 @@
-
 Feature: Personal Info Page related features
 
 Background: Common steps for all scenarios
-  Given The user is on the homepage
-#  When The user enters the valid credentials
-#  Then The user should be able to login and go to the Personal Info Page
+  Given I am on the Personal Info Page
 
-  @smoke @regression
-  Scenario: Login with valid credentials and go to Personal Info Page
-    Given The user enters the valid credentials and goes to personal info page
+   @personlinfo_ui
+  Scenario: Entering the information with valid credentials to continue to the next page
+    When The user enters all the required information with valid credentials
+    Then The user should be able to go to the next page
 
-    Scenario: Entering with valid credentials for Personal Info Page
-      When The user enters with valid personal page credentials and proceeds to next page
+  @personlinfo_ui
+    Scenario: Trying to proceed to the next page without entering any credentials
+      When The user tries to proceed to next page by clicking next button
+      Then User should not be able to land on the next page
+
+
+
+
+
+
+
 
 
 

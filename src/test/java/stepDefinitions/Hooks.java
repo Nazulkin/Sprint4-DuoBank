@@ -23,6 +23,7 @@ public class Hooks {
 
     @Before ("@db_only")
     public void setupDb(){
+
         DBUtility.createConnection();
     }
 

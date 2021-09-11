@@ -7,7 +7,7 @@ import org.junit.runner.RunWith;
 
 @RunWith(Cucumber.class)
 @CucumberOptions(
-        tags = "@temp", //@smoke is just as a placeholder
+        tags = "@personalinfo_db", //@smoke is just as a placeholder
         features = "src/test/resources/features",
         glue = "stepDefinitions"
 //        ,dryRun = true
